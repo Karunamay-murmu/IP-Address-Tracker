@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Input from "./input";
 import Error from "../Error/error";
 
-import { validateIp } from "../../utils/validation";
 import { apiCall } from '../../api/api';
 
 export default function InputContainer() {
@@ -15,18 +14,13 @@ export default function InputContainer() {
         error && setError(null);
     }
 
-
-    const onApiCall = () => {
-        const validIp = validateIp(ip);
-        if (validIp) {
-            apiCall(ip);
-            return
+    const onApiCall = async () => {
+        const response = await apiCall(ip);
+        console.log(response)
+        if (response.code === 422) {
+            setError({ message: response.messages });
         }
-        setError({
-            message: "Please enter a valid IPv4 address."
-        })
     }
-
 
     return (
         <div>
