@@ -1,32 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Input from "./input";
 import Error from "../Error/error";
 
-import { apiCall } from '../../api/api';
+import { FetchContext } from '../../contexts/fetchContext';
 
 export default function InputContainer() {
-    const [ip, setIp] = useState("");
-    const [error, setError] = useState(null);
+    const [input, setInput] = useState("");
+
+    const { apiError, setApiError } = useContext(FetchContext);
 
     const onInputChange = (e) => {
-        setIp(e.target.value);
-        error && setError(null);
-    }
-
-    const onApiCall = async () => {
-        const response = await apiCall(ip);
-        console.log(response)
-        if (response.code === 422) {
-            setError({ message: response.messages });
-        }
+        setInput(e.target.value);
+        apiError && setApiError(null);
     }
 
     return (
         <div>
-            <Input ip={ip} onInputChange={onInputChange} onApiCall={onApiCall} />
+            <Input input={input} onInputChange={onInputChange} />
             {
-                error && <Error obj={error} />
+                apiError && <Error obj={apiError} />
             }
         </div>
     )

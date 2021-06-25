@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FetchContext } from "../../contexts/fetchContext";
 
-import iconArrow from "../../static/assets/icon-arrow.svg";
+import Button from "../Button/button";
 
-export default function Input({ ip, onApiCall, onInputChange }) {
+import "../../static/stylesheets/css/inputContainer.css";
+
+export default function Input({ input, onInputChange }) {
+    const { fetchApiData } = useContext(FetchContext)
+
     return (
-        <div>
+        <div className="input-container">
             <input
+                className="input-container--input"
                 required
                 type="text"
                 minLength="7"
                 maxLength="15"
-                title="Enter IPv4 address or domain"
+                placeholder="Search for any IP address or domain"
+                title="Search for any IP address or domain"
                 pattern=""
-                aria-label="Enter IPv4 address or domain"
-                value={ip}
+                aria-label="Search for any IP address or domain"
+                value={input}
                 onChange={onInputChange}
             />
-            <button type="submit" onClick={onApiCall} aria-label="submit" title="Submit">
-                <img src={iconArrow} alt="submit" />
-            </button>
+            <Button onclick={() => fetchApiData(input)} />
         </div>
     )
 }
