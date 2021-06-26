@@ -13,7 +13,7 @@ export default function CardContainer({ response: { query, city, regionName, cou
     return (
         <>
             {data.map(a =>
-                <Card header={a.header} body={a.body} />
+                <Card key={a.header} header={a.header} body={a.body} />
             )}
         </>
     )

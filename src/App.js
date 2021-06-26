@@ -22,8 +22,8 @@ function App() {
             const data = await fetchData(ip);
             const response = await data.json();
 
-            if (data.status !== 200) {
-                setApiError({ message: response.messages, ...apiError });
+            if (response.status === 'fail') {
+                setApiError({ message: "Invalid IPv4 or IPv6 address. Please enter a valid IP address.", ...apiError });
                 setApiData(null);
                 return;
             }
