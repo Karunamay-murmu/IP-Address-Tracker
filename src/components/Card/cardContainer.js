@@ -2,11 +2,11 @@ import React from 'react'
 
 import Card from "./card";
 
-export default function CardContainer({ response: { ip, location, isp } }) {
+export default function CardContainer({ response: { query, city, regionName, country, timezone, zip, isp } }) {
     const data = [
-        { header: "IP Address", body: ip },
-        { header: "LOCATION", body: `${location.city}, ${location.region}, ${location.country}` },
-        { header: "TIMEZONE", body: location.timezone },
+        { header: "IP Address", body: query },
+        { header: "LOCATION", body: `${city}, ${zip}, ${regionName}, ${country}` },
+        { header: "TIMEZONE", body: timezone },
         { header: "ISP", body: isp }
     ]
 

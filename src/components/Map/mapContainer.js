@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import mapboxgl from "mapbox-gl";
+
+import { FetchContext } from '../../contexts/fetchContext';
 
 import iconLocation from "../../static/assets/icon-location.svg";
 import "../../static/stylesheets/css/map.css";
@@ -7,9 +9,12 @@ import "../../static/stylesheets/css/map.css";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function MapContainer() {
-    const [lng, setLng] = useState(13.4049)
-    const [lat, setLat] = useState(59.5200)
-    const [zoom, setZoom] = useState(15)
+    // const { apiData } = useContext(FetchContext);
+    // console.log(apiData)
+
+    const [lng, setLng] = useState(86.6522)
+    const [lat, setLat] = useState(23.303)
+    const [zoom, setZoom] = useState(13)
 
     const mapContainer = useRef(null);
     const map = useRef(null);
@@ -23,6 +28,7 @@ function MapContainer() {
             center: [lng, lat],
             zoom: zoom
         })
+        marker.current = new mapboxgl.Marker(marker.current).setLngLat([lng, lat]).addTo(map.current);
     });
 
     useEffect(() => {
@@ -33,10 +39,6 @@ function MapContainer() {
             setZoom(map.current.getZoom().toFixed(2));
         });
     });
-
-    useEffect(() => {
-        marker.current = new mapboxgl.Marker(marker.current).setLngLat([lng, lat]).addTo(map.current);
-    }, [])
 
 
     return (

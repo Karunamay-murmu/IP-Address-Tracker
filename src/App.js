@@ -30,7 +30,6 @@ function App() {
 
             setApiData({ ...response });
         }
-
     }
 
     return (
@@ -38,8 +37,8 @@ function App() {
             <FetchContext.Provider value={{ apiData, apiError, setApiError, fetchApiData }} >
                 <Header />
                 {apiData ? <CardContainer response={apiData} /> : null}
+                <MapContainer />
             </FetchContext.Provider>
-            <MapContainer />
         </div>
     );
 }
