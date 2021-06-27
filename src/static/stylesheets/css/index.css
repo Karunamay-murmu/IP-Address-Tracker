@@ -1,6 +1,9 @@
 :root, * {
   font-size: 18px;
   font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #root {
@@ -8,9 +11,6 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   margin: auto;
   max-width: 1440px;
   height: 100vh;

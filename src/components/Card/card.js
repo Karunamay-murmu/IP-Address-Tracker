@@ -1,15 +1,17 @@
 import React from 'react';
 
+import "../../static/stylesheets/css/card.css"
+
 function Card({ header, body }) {
     return (
-        <div className="card-container">
-            <div className="card-container__info-box">
-                <p className="card-container__info-box--header">
+        <div className="card">
+            <div className="card__info-box">
+                <p className="card__info-box--header">
                     {header}
                 </p>
-                <h2 className="card-container__info-box--text">
+                <p className="card__info-box--text">
                     {body}
-                </h2>
+                </p>
             </div>
         </div>
     )

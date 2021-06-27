@@ -1,0 +1,39 @@
+.card {
+  padding-right: 2rem;
+}
+.card:not(:first-child) {
+  padding-left: 2rem;
+  border-left: 1px solid #969696;
+}
+.card__info-box--header {
+  font-weight: 500;
+  color: #969696;
+  font-size: 0.7rem;
+}
+.card__info-box--text {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+@media only screen and (max-width: 425px) {
+  .card__info-box--header {
+    font-size: 0.6rem;
+  }
+  .card__info-box--text {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .card:not(:first-child) {
+    padding-right: 2rem;
+    border-left: none;
+    padding-left: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    padding: 0 !important;
+  }
+}
+
+/*# sourceMappingURL=card.css.map */

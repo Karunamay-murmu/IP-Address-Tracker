@@ -3,7 +3,22 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 30%;
+  height: 250px;
+}
+@media only screen and (max-width: 1024px) {
+  .header {
+    height: 280px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header {
+    height: 320px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .header {
+    height: 265px;
+  }
 }
 
 /*# sourceMappingURL=header.css.map */

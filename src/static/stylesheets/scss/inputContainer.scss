@@ -1,17 +1,45 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    @media only screen and (max-width: 425px) {
+        & {
+            padding: 1rem;
+        }
+    }
+
+    p {
+        margin: auto;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #ffffff;
+
+        @media only screen and (max-width: 425px) {
+            & {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
 .input-container {
-    display: block;
+    display: flex;
     padding: 1rem;
+    width: 530px;
+    max-width: 100%;
+    margin: auto;
 
     &--input {
-        width: 350px;
-        padding: .8rem;
+        width: 100%;
+        padding: 1rem;
         border: none;
         outline: none;
-        border-radius: .6rem 0 0 .6rem;
-        font-size: .85rem;
+        border-radius: 0.6rem 0 0 0.6rem;
+        font-size: 0.85rem;
 
         &::placeholder {
-            font-size: .78rem;
+            font-size: 0.78rem;
         }
     }
 }

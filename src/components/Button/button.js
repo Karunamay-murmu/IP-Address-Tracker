@@ -9,6 +9,5 @@ export default function Button({ onclick }) {
         <button className="btn" type="submit" onClick={onclick} aria-label="submit" title="Submit">
             <img src={iconArrow} alt="submit" />
         </button>
-
     )
 }

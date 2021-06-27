@@ -1,4 +1,20 @@
+@import "../../../global/variables.scss";
+
 .btn {
     display: inline-block;
-    padding: .8rem;
+    margin: 0;
+    width: 61.3px;
+    border-radius: 0 .6rem .6rem 0;
+    outline: none;
+    border: none;
+    background-color: black;
+    cursor: pointer;
+    &:hover {
+        background-color: $primary-very-dark-gray;
+    }
+
+    img {
+        width: .6rem;
+    }
+
 }

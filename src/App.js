@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import Header from "./components/Header/header";
 import CardContainer from "./components/Card/cardContainer";
@@ -13,7 +13,7 @@ function App() {
     const [apiData, setApiData] = useState(null);
     const [apiError, setApiError] = useState(null);
 
-    const previousIp = useRef();
+    const previousIp = useRef(null);
 
     const fetchApiData = async (ip) => {
         if (ip !== previousIp.current) {
@@ -32,12 +32,18 @@ function App() {
         }
     }
 
+    useEffect(() => {
+        fetchApiData('');
+
+    }, [])
+
+
     return (
         <div className="app">
             <FetchContext.Provider value={{ apiData, apiError, setApiError, fetchApiData }} >
                 <Header />
                 {apiData ? <CardContainer response={apiData} /> : null}
-                <MapContainer />
+                {apiData && <MapContainer />}
             </FetchContext.Provider>
         </div>
     );

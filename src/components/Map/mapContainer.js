@@ -9,46 +9,40 @@ import "../../static/stylesheets/css/map.css";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function MapContainer() {
-    // const { apiData } = useContext(FetchContext);
-    // console.log(apiData)
+    const { apiData } = useContext(FetchContext);
 
-    const [lng, setLng] = useState(86.6522)
-    const [lat, setLat] = useState(23.303)
+    const [lon, setLon] = useState(apiData.lon)
+    const [lat, setLat] = useState(apiData.lat)
     const [zoom, setZoom] = useState(13)
+
+    const prvLon = useRef(lon);
+    const prvLat = useRef(lat);
 
     const mapContainer = useRef(null);
     const map = useRef(null);
     const marker = useRef(null);
 
     useEffect(() => {
-        if (map.current) return;
+        if (apiData.lat !== prvLat.current || apiData.lon !== prvLon.current) {
+            setLon(apiData.lon)
+            setLat(apiData.lat)
+        }
+    })
+
+    useEffect(() => {
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [lng, lat],
+            center: [lon, lat],
             zoom: zoom
         })
-        marker.current = new mapboxgl.Marker(marker.current).setLngLat([lng, lat]).addTo(map.current);
-    });
+        marker.current = new mapboxgl.Marker(marker.current).setLngLat([lon, lat]).addTo(map.current);
 
-    useEffect(() => {
-        if (!map.current) return;
-        map.current.on('move', () => {
-            setLng(map.current.getCenter().lng.toFixed(4));
-            setLat(map.current.getCenter().lat.toFixed(4));
-            setZoom(map.current.getZoom().toFixed(2));
-        });
     });
 
 
     return (
-        <div class="map-container">
-            <div className="topbar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-            </div>
-            <div ref={marker} className="marker">
-                <img src={iconLocation} alt="marker" />
-            </div>
+        <div className="map-container">
             <div ref={mapContainer} className="map" />
         </div>
     )
