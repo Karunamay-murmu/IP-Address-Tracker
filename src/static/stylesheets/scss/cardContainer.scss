@@ -24,7 +24,7 @@
 
     @media only screen and (max-width: 425px) {
         & {
-            top: 130px;
+            top: 135px;
             width: 602px;
             padding: 0 2rem;
         }
@@ -54,6 +54,7 @@
                 grid-template-columns: repeat(1, 1fr);
                 grid-gap: 1rem;
                 text-align: center;
+                padding: 1rem;
             }
         }
     }

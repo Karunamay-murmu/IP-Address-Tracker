@@ -3,7 +3,6 @@ import mapboxgl from "mapbox-gl";
 
 import { FetchContext } from '../../contexts/fetchContext';
 
-import iconLocation from "../../static/assets/icon-location.svg";
 import "../../static/stylesheets/css/map.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -13,7 +12,6 @@ function MapContainer() {
 
     const [lon, setLon] = useState(apiData.lon)
     const [lat, setLat] = useState(apiData.lat)
-    const [zoom, setZoom] = useState(13)
 
     const prvLon = useRef(lon);
     const prvLat = useRef(lat);
@@ -27,14 +25,15 @@ function MapContainer() {
             setLon(apiData.lon)
             setLat(apiData.lat)
         }
-    })
+        //eslint-disable-next-line
+    }, [apiData.lat, apiData.lon])
 
     useEffect(() => {
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [lon, lat],
-            zoom: zoom
+            zoom: 13
         })
         marker.current = new mapboxgl.Marker(marker.current).setLngLat([lon, lat]).addTo(map.current);
 

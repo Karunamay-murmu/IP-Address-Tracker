@@ -34,7 +34,7 @@ function App() {
 
     useEffect(() => {
         fetchApiData('');
-
+        //eslint-disable-next-line
     }, [])
 
 
