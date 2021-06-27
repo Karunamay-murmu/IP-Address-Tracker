@@ -3,7 +3,7 @@
 .card {
     &:not(:first-child) {
         padding-left:2rem;
-        border-left: 1px solid $primary-light-gray;
+        border-left: 2px solid $primary-light-gray;
     }
     padding-right: 2rem;
 
@@ -25,7 +25,7 @@
                 font-size: 0.6rem;
             }
             &--text{
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
         }
     }

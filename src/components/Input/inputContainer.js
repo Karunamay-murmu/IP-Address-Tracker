@@ -17,11 +17,12 @@ export default function InputContainer() {
 
     return (
         <div className="input-wrapper">
-            <p>IP Address Tracker</p>
+            <p className="input-wrapper__header">IP Address Tracker</p>
             <Input input={input} onInputChange={onInputChange} />
             {
                 apiError && <Error obj={apiError} />
             }
+            {/* <p className="input-wrapper__error"></p> */}
         </div>
     )
 }

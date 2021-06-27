@@ -13,6 +13,7 @@ export default function CardContainer({ response: { query, city, regionName, cou
 
     return (
         <div className="card-container">
+            <p className="card-container__info">You are allowed to make 45 query per minute.</p>
             <div className="card-wrapper">
             {data.map(a =>
                 <Card key={a.header} header={a.header} body={a.body} />

@@ -21,6 +21,7 @@ function MapContainer() {
     const marker = useRef(null);
 
     useEffect(() => {
+        console.log(apiData)
         if (apiData.lat !== prvLat.current || apiData.lon !== prvLon.current) {
             setLon(apiData.lon)
             setLat(apiData.lat)
@@ -33,7 +34,7 @@ function MapContainer() {
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [lon, lat],
-            zoom: 13
+            zoom: 10
         })
         marker.current = new mapboxgl.Marker(marker.current).setLngLat([lon, lat]).addTo(map.current);
 

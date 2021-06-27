@@ -9,6 +9,7 @@ export default function Input({ input, onInputChange }) {
     const { fetchApiData } = useContext(FetchContext)
 
     return (
+        <>
         <div className="input-container">
             <input
                 className="input-container--input"
@@ -25,5 +26,7 @@ export default function Input({ input, onInputChange }) {
             />
             <Button onclick={() => fetchApiData(input)} />
         </div>
+        {/* <p>You are allowed to make 45 query per minute.</p> */}
+        </>
     )
 }

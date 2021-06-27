@@ -3,7 +3,7 @@
 }
 .card:not(:first-child) {
   padding-left: 2rem;
-  border-left: 1px solid #969696;
+  border-left: 2px solid #969696;
 }
 .card__info-box--header {
   font-weight: 500;
@@ -20,7 +20,7 @@
     font-size: 0.6rem;
   }
   .card__info-box--text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 @media only screen and (max-width: 1024px) {

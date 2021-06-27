@@ -20,15 +20,21 @@ function App() {
             previousIp.current = ip;
 
             const data = await fetchData(ip);
-            const response = await data.json();
+            if (data.error) {
+                setApiError({ 
+                    message: "Your adblocker is blocking the request.", 
+                    ...apiError 
+                });
+            } else {
+                const response = await data.json();
+                if (response.status === 'fail') {
+                    setApiError({ message: "Invalid IPv4 or IPv6 address. Please enter a valid IP address.", ...apiError });
+                    setApiData(null);
+                    return;
+                }
 
-            if (response.status === 'fail') {
-                setApiError({ message: "Invalid IPv4 or IPv6 address. Please enter a valid IP address.", ...apiError });
-                setApiData(null);
-                return;
+                setApiData({ ...response });
             }
-
-            setApiData({ ...response });
         }
     }
 

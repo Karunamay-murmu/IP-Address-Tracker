@@ -3,7 +3,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 250px;
+  height: 260px;
 }
 @media only screen and (max-width: 1024px) {
   .header {
@@ -12,12 +12,12 @@
 }
 @media only screen and (max-width: 768px) {
   .header {
-    height: 310px;
+    height: 330px;
   }
 }
 @media only screen and (max-width: 425px) {
   .header {
-    height: 260px;
+    height: 285px;
   }
 }
 

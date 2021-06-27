@@ -1,6 +1,6 @@
 .card-container {
   position: absolute;
-  top: 173px;
+  top: 165px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -8,6 +8,12 @@
   padding: 0 3rem;
   width: 1012px;
   max-width: 100%;
+}
+.card-container__info {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.3rem 0.3rem;
 }
 @media only screen and (max-width: 1024px) {
   .card-container {
