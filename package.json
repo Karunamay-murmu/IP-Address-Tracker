@@ -2,6 +2,8 @@
   "name": "ip-address-tracker",
   "version": "0.1.0",
   "private": true,
+  "author": "Karunamay Murmu",
+  "description": "Get Location of IP Address",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
