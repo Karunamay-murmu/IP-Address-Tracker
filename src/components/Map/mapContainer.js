@@ -10,8 +10,8 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 function MapContainer() {
     const { apiData } = useContext(FetchContext);
 
-    const [lon, setLon] = useState(apiData.lon)
-    const [lat, setLat] = useState(apiData.lat)
+    const [lon, setLon] = useState(apiData.longitude)
+    const [lat, setLat] = useState(apiData.latitude)
 
     const prvLon = useRef(lon);
     const prvLat = useRef(lat);
@@ -21,13 +21,12 @@ function MapContainer() {
     const marker = useRef(null);
 
     useEffect(() => {
-        console.log(apiData)
-        if (apiData.lat !== prvLat.current || apiData.lon !== prvLon.current) {
-            setLon(apiData.lon)
-            setLat(apiData.lat)
+        if (apiData.latitude !== prvLat.current || apiData.longitude !== prvLon.current) {
+            setLon(apiData.longitude)
+            setLat(apiData.latitude)
         }
         //eslint-disable-next-line
-    }, [apiData.lat, apiData.lon])
+    }, [apiData.latitude, apiData.longitude])
 
     useEffect(() => {
         map.current = new mapboxgl.Map({
