@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { FetchContext } from "../../contexts/fetchContext";
+import React from "react";
 
 import Button from "../Button/button";
 
