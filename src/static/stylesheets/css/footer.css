@@ -1,0 +1,26 @@
+.footer {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.footer span {
+  color: red;
+}
+.footer p, .footer a {
+  font-size: 0.8rem;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+.footer a {
+  color: lightseagreen;
+}
+@media only screen and (max-width: 320px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+  .footer a {
+    margin-top: 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

@@ -1,6 +1,6 @@
 .map-container {
   width: 100%;
-  height: calc(100% - 250px);
+  height: calc(100% - 245px);
 }
 .map-container .topbar {
   background-color: rgba(35, 55, 75, 0.9);
@@ -21,6 +21,21 @@
 .map-container .marker img {
   width: 35px;
   z-index: 1;
+}
+@media only screen and (max-width: 1024px) {
+  .map-container {
+    height: calc(100% - 250px);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .map-container {
+    height: calc(100% - 315px);
+  }
+}
+@media only screen and (max-width: 425px) {
+  .map-container {
+    height: calc(100% - 300px);
+  }
 }
 
 /*# sourceMappingURL=map.css.map */

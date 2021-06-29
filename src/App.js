@@ -8,6 +8,7 @@ import { FetchContext } from "./contexts/fetchContext";
 import { fetchData } from "./api/fetchData";
 
 import "./static/stylesheets/css/app.css"
+import Footer from "./components/Footer/footer";
 
 function App() {
     const [apiData, setApiData] = useState(null);
@@ -52,6 +53,7 @@ function App() {
                 <Header />
                 {apiData ? <CardContainer response={apiData} /> : null}
                 {apiData && <MapContainer />}
+                <Footer />
             </FetchContext.Provider>
         </div>
     );

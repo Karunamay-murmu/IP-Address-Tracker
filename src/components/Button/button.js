@@ -4,9 +4,9 @@ import iconArrow from "../../static/assets/icon-arrow.svg"
 
 import "../../static/stylesheets/css/button.css";
 
-export default function Button({ onclick }) {
+export default function Button({ handleSubmit }) {
     return (
-        <button className="btn" type="submit" onClick={onclick} aria-label="submit" title="Submit">
+        <button className="btn" type="submit" onClick={handleSubmit} aria-label="submit" title="Submit">
             <img src={iconArrow} alt="submit" />
         </button>
     )
