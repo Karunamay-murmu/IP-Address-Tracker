@@ -8,7 +8,7 @@ This is a solution to the [IP address tracker challenge on Frontend Mentor](http
 Create `.env` file and put the appropriate token or api key. More info in `.env_sample` file.
 
 `npm install`\
-`npm start`
+`npm run dev`
 
 
 ## How To Use IP Address Tracker?
